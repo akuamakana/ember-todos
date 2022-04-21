@@ -1,0 +1,30 @@
+<form {{on 'submit' this.submitForm}} class='form'>
+  <h1 class='form-header'>Register</h1>
+  {{#if this.error}}
+    <div class='alert danger'>
+      {{this.error}}
+    </div>
+  {{/if}}
+  <label>
+    Email:
+    <Input @type='email' @value={{this.email}} placeholder='Enter email' />
+  </label>
+  <label>
+    Name:
+    <Input @type='text' @value={{this.name}} placeholder='Enter name' />
+  </label>
+  <label>
+    Age:
+    <Input @type='number' @value={{this.age}} placeholder='Enter age' />
+  </label>
+  <label>
+    Password:
+    <Input
+      @type='password'
+      @value={{this.password}}
+      placeholder='Enter password'
+    />
+  </label>
+  {{! TODO: Loading feedback on button }}
+  <button type='submit' class='btn btn-primary'>Submit</button>
+</form>
