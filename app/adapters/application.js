@@ -1,5 +1,6 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
+import ENV from 'ember-todos/config/environment';
 
 export default class ApplicationAdapter extends JSONAPIAdapter {
-  host = 'https://api-nodejs-todolist.herokuapp.com';
+  host = ENV.API_URL;
 }

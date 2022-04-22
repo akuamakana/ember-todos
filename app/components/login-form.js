@@ -1,13 +1,7 @@
-import AuthFormComponent from './auth.form';
+import RegisterFormComponent from './register-form';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
-import { service } from '@ember/service';
 
-export default class LoginFormComponent extends AuthFormComponent {
-  @tracked email = '';
-  @tracked password = '';
-  @service auth;
-
+export default class LoginFormComponent extends RegisterFormComponent {
   @action
   async submitForm(e) {
     this.resetForm(e);

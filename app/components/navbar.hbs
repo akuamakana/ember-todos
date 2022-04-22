@@ -4,7 +4,7 @@
   </LinkTo>
   <div class='button-group'>
     {{#if this.isLoggedIn}}
-      <button class='btn danger' {{on 'click' this.logout}}>
+      <button class='btn danger' type="button" {{on 'click' this.logout}}>
         Logout
       </button>
     {{else}}
