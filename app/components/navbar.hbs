@@ -1,17 +1,22 @@
 <nav>
-  <LinkTo class='nav-link' @route='home'>
+  <LinkTo data-test-nav-link='home' class='nav-link' @route='home'>
     Home
   </LinkTo>
   <div class='button-group'>
     {{#if this.isLoggedIn}}
-      <button class='btn danger' {{on 'click' this.logout}}>
+      <button
+        data-test-nav-link='logout'
+        class='btn danger'
+        type='button'
+        {{on 'click' this.logout}}
+      >
         Logout
       </button>
     {{else}}
-      <LinkTo class='nav-link' @route='register'>
+      <LinkTo data-test-nav-link='register' class='nav-link' @route='register'>
         Register
       </LinkTo>
-      <LinkTo class='nav-link' @route='login'>
+      <LinkTo data-test-nav-link='login' class='nav-link' @route='login'>
         Login
       </LinkTo>
     {{/if}}

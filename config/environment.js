@@ -30,6 +30,10 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-cli-mirage'] = {
+      enabled: false,
+    };
+    ENV.API_URL = 'https://api-nodejs-todolist.herokuapp.com';
   }
 
   if (environment === 'test') {
@@ -42,13 +46,15 @@ module.exports = function (environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
+    ENV.API_URL = 'http://localhost:4004';
+    ENV['ember-cli-mirage'] = {
+      enabled: true,
+    };
   }
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
   }
-
-  ENV.API_URL = 'https://api-nodejs-todolist.herokuapp.com';
 
   return ENV;
 };
