@@ -10,7 +10,6 @@ export default class FormComponent extends Component {
   }
 
   async updateError(error) {
-    // const message = await error.json();
     this.error = error;
   }
 
@@ -22,7 +21,6 @@ export default class FormComponent extends Component {
       return this.updateError(res);
     }
     // this.handleSuccess()
-    // Do next fn() or route?
   }
 
   // async handleError() {}

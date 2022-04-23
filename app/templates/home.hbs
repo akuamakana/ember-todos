@@ -1,3 +1,20 @@
 {{page-title 'Home'}}
-<h1 data-test-welcome-message>Welcome home, {{@model.name}}</h1>
+<h1 data-test-welcome-message>Welcome home, {{@model.user.name}}</h1>
+
+<form {{on 'submit' this.submitForm}}>
+  <label for='task-description'>
+    Create new task
+    <Input @type="'text" @value={{this.description}} />
+  </label>
+  <button type='submit' class='btn'>Submit</button>
+</form>
+
+<h1>Tasks</h1>
+<div class='container'>
+  {{#each @model.tasks as |task|}}
+    <div class='task'>
+      <h2>{{task.description}}</h2>
+    </div>
+  {{/each}}
+</div>
 {{outlet}}

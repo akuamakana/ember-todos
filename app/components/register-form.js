@@ -2,7 +2,6 @@ import FormComponent from './form';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
-import axiosInstance from '../utils/axiosInstance';
 
 export default class RegisterFormComponent extends FormComponent {
   @tracked name;
@@ -17,6 +16,8 @@ export default class RegisterFormComponent extends FormComponent {
   async handleForm(fn) {
     try {
       const { data } = await fn();
+
+      console.log(data);
 
       this.cookies.write('token', data.token, {
         secure: true,
@@ -42,7 +43,7 @@ export default class RegisterFormComponent extends FormComponent {
     this.resetForm(e);
 
     this.handleForm(async () =>
-      axiosInstance.post('/user/register', {
+      this.auth.register({
         name: this.name,
         email: this.email,
         password: this.password,

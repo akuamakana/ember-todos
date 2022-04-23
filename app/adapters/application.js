@@ -1,6 +1,15 @@
-import JSONAPIAdapter from '@ember-data/adapter/json-api';
+import RESTAdapter from '@ember-data/adapter/rest';
 import ENV from 'ember-todos/config/environment';
+import { service } from '@ember/service';
 
-export default class ApplicationAdapter extends JSONAPIAdapter {
+export default class ApplicationAdapter extends RESTAdapter {
   host = ENV.API_URL;
+  @service cookies;
+
+  get headers() {
+    return {
+      Authorization: `Bearer ${this.cookies.read('token')}`,
+      'Content-Type': 'application/json',
+    };
+  }
 }

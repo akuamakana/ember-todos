@@ -41,7 +41,6 @@
     "ember-cli-terser": "^4.0.2",
     "ember-cookies": "^0.5.2",
     "ember-data": "~4.3.0",
-    "ember-data-model-fragments": "^5.0.0-beta.3",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.1.1",
     "ember-load-initializers": "^2.1.2",
@@ -73,6 +72,7 @@
     "edition": "octane"
   },
   "dependencies": {
-    "axios": "^0.26.1"
+    "axios": "^0.26.1",
+    "ember-data-model-fragments": "^5.0.0-beta.3"
   }
 }

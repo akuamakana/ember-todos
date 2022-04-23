@@ -96,6 +96,7 @@ button:focus-visible {
   display: flex;
   justify-content: center;
   place-items: center;
+  flex-direction: column;
 }
 
 .button-group {
@@ -108,6 +109,13 @@ button:focus-visible {
   padding: 1rem;
   border-radius: 0.25rem;
   color: black;
+}
+
+.task {
+  border-radius: 0.25rem;
+  flex-grow: 1;
+  width: 100%;
+  background-color: #4c566a;
 }
 
 .danger {
