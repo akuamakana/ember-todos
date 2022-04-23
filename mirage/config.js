@@ -5,36 +5,49 @@ export default function () {
 
   this.post('/user/login', (schema, request) => {
     let attrs = JSON.parse(request.requestBody);
-    console.log(attrs);
 
     return {
       user: {
         age: 27,
         _id: '625f4b6685b3490017ee9f66',
         name: 'kion',
-        email: 'akuamakana@gmail.com',
+        email: attrs.email,
         createdAt: '2022-04-19T23:53:10.348Z',
         updatedAt: '2022-04-22T16:37:19.782Z',
         __v: 67,
       },
-      token:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjVmNGI2Njg1YjM0OTAwMTdlZTlmNjYiLCJpYXQiOjE2NTA2NDU0Mzl9.vR-Hd_LViQUrn5UN0bBh-0efEtgZD5ZT0rv-m3uYgFc',
+      token: `login${attrs.email}${attrs.password}`,
     };
   });
 
-  // this.create('user');
+  this.post('/user/register', (schema, request) => {
+    let attrs = JSON.parse(request.requestBody);
 
-  // this.post(
-  //   '/user/login',
-  //   () => {
-  //     console.log('Unable to login');
-  //     return { error: 'Unable to login' };
-  //   },
-  //   400
-  // );
+    return {
+      user: {
+        age: attrs.age,
+        _id: '625f4b6685b3490017ee9f66',
+        name: attrs.name,
+        email: attrs.email,
+        createdAt: '2022-04-19T23:53:10.348Z',
+        updatedAt: '2022-04-22T16:37:19.782Z',
+        __v: 67,
+      },
+      token: `register${attrs.email}${attrs.password}${attrs.age}${attrs.name}`,
+    };
+  });
 
-  // this.post('/user/login', (schema, request) => {
-  //   let attrs = JSON.parse(request.requestBody);
-  //   console.log(attrs);
-  // });
+  this.delete('/user/me', () => 'User Deleted');
+
+  this.post('/user/logout', () => 'Logged out');
+
+  this.get('/user/me', () => ({
+    age: 27,
+    _id: '625f4b6685b3490017ee9f66',
+    name: 'kion',
+    email: 'email@email.com',
+    createdAt: '2022-04-19T23:53:10.348Z',
+    updatedAt: '2022-04-22T16:37:19.782Z',
+    __v: 67,
+  }));
 }

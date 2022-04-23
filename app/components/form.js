@@ -10,17 +10,18 @@ export default class FormComponent extends Component {
   }
 
   async updateError(error) {
-    const message = await error.json();
-    this.error = message;
+    // const message = await error.json();
+    this.error = error;
   }
 
   async handleForm(fn) {
     const res = await fn();
 
     if (!res.ok) {
+      // this.handleError()
       return this.updateError(res);
     }
-
+    // this.handleSuccess()
     // Do next fn() or route?
   }
 

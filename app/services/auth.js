@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import fetchInstance from '../utils/fetchInstance';
+import axiosInstance from '../utils/axiosInstance';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
@@ -15,40 +15,30 @@ export default class AuthService extends Service {
   }
 
   @action
-  async login({ email, password }) {
-    return fetchInstance(`/user/login`, {
-      method: 'POST',
-      body: JSON.stringify({
-        email,
-        password,
-      }),
+  login({ email, password }) {
+    return axiosInstance.post('/user/login', {
+      email,
+      password,
     });
   }
 
   @action
-  async register({ name, email, password, age }) {
-    return fetchInstance('/user/register', {
-      method: 'POST',
-      body: JSON.stringify({
-        name,
-        email,
-        password,
-        age,
-      }),
+  register({ name, email, password, age }) {
+    return axiosInstance.post('/user/register', {
+      email,
+      name,
+      age,
+      password,
     });
   }
 
   @action
-  async logout() {
-    return fetchInstance('/user/logout', {
-      method: 'POST',
-    });
+  logout() {
+    return axiosInstance.post('/user/logout');
   }
 
   @action
-  async deleteUser() {
-    return fetchInstance('/user/me', {
-      method: 'DELETE',
-    });
+  deleteUser() {
+    return axiosInstance.delete('/user/me');
   }
 }

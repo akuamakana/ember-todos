@@ -1,5 +1,5 @@
 <Form {{on 'submit' this.submitForm}} @header='Login' @error={{this.error}}>
-  <label data-test-email-label for='email'>Email
+  <label data-test-email-label>Email
     <Input
       name='email'
       @type='email'
@@ -8,7 +8,7 @@
       data-test-email-input
     />
   </label>
-  <label data-test-password-label for='password'>Password
+  <label data-test-password-label>Password
     <Input
       name='password'
       @type='password'
