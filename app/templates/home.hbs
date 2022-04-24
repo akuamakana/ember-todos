@@ -10,11 +10,9 @@
 </form>
 
 <h1>Tasks</h1>
-<div class='container'>
+<div class='container task-list'>
   {{#each @model.tasks as |task|}}
-    <div class='task'>
-      <h2>{{task.description}}</h2>
-    </div>
+    <Task @task={{task}} />
   {{/each}}
 </div>
 {{outlet}}

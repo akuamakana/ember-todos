@@ -1,0 +1,4 @@
+<div class='task' {{on 'click' (fn this.toggleComplete @task.id)}}>
+  <div>{{if @task.completed 'Completed' 'Incomplete'}}</div>
+  <p>{{@task.description}}</p>
+</div>

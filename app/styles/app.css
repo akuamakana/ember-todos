@@ -2,7 +2,7 @@
 
 * {
   font-family: 'Lato', sans-serif;
-  bounding-box: block;
+  /* bounding-box: block; */
 }
 
 html,
@@ -111,11 +111,18 @@ button:focus-visible {
   color: black;
 }
 
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+}
+
 .task {
   border-radius: 0.25rem;
-  flex-grow: 1;
-  width: 100%;
   background-color: #4c566a;
+  padding: 0 1rem;
+  cursor: pointer;
 }
 
 .danger {
