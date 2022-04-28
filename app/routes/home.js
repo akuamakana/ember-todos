@@ -1,6 +1,5 @@
 import { service } from '@ember/service';
 import Route from '@ember/routing/route';
-// import { action } from '@ember/object';
 import RSVP from 'rsvp';
 
 export default class HomeRoute extends Route {

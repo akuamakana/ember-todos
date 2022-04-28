@@ -10,6 +10,7 @@ export default class UserAdapter extends RESTAdapter {
     return {
       Authorization: `Bearer ${this.cookies.read('token')}`,
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
     };
   }
 

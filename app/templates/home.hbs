@@ -4,7 +4,7 @@
 <form {{on 'submit' this.submitForm}}>
   <label for='task-description'>
     Create new task
-    <Input @type="'text" @value={{this.description}} />
+    <Input @type='text' @value={{this.description}} />
   </label>
   <button type='submit' class='btn'>Submit</button>
 </form>
@@ -15,4 +15,3 @@
     <Task @task={{task}} />
   {{/each}}
 </div>
-{{outlet}}

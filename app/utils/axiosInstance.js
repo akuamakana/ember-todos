@@ -7,6 +7,7 @@ const axiosInstance = axios.create({
   headers: {
     Authorization: `Bearer ${getCookie('token')}`,
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
 });
 

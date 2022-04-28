@@ -1,4 +1,16 @@
-<div class='task' {{on 'click' (fn this.toggleComplete @task.id)}}>
-  <div>{{if @task.completed 'Completed' 'Incomplete'}}</div>
+<div
+  class={{if @task.completed 'task completed' 'task'}}
+  onclick={{action 'toggleComplete' @task.id bubbles=false}}
+  onmouseenter={{action 'toggleHover'}}
+  onmouseleave={{action 'toggleHover'}}
+>
   <p>{{@task.description}}</p>
+  {{#if this.isHovered}}
+    <button
+      class='delete-button'
+      onclick={{action 'deleteTask' @task.id bubbles=false}} type="button"
+    >
+      Delete
+    </button>
+  {{/if}}
 </div>

@@ -26,38 +26,19 @@ export default class TaskSerializer extends RESTSerializer {
   }
 
   normalizeCreateRecordResponse(store, primaryModelClass, payload) {
-    delete payload.status;
-    delete payload.statusText;
-    delete payload.request;
-    delete payload.headers;
-    delete payload.config;
-    delete payload.data.success;
-    payload.task = payload.data.data;
-    delete payload.data;
-    return super.normalizeCreateRecordResponse(
-      store,
-      primaryModelClass,
-      payload
-    );
+    const task = {
+      task: payload.data.data,
+    };
+
+    return super.normalizeCreateRecordResponse(store, primaryModelClass, task);
   }
 
   normalizeUpdateRecordResponse(store, primaryModelClass, payload) {
-    //  QUESTION: When does modelNameFromPayloadKey() get called?
-    //  Warning "data" & "success" models don't exist.
-    //  Better way to sanitize payload?
-    delete payload.status;
-    delete payload.statusText;
-    delete payload.request;
-    delete payload.headers;
-    delete payload.config;
-    delete payload.data.success;
-    payload.task = payload.data.data;
-    delete payload.data;
+    // QUESTION: When does modelNameFromPayloadKey get called?
+    const task = {
+      task: payload.data.data,
+    };
 
-    return super.normalizeCreateRecordResponse(
-      store,
-      primaryModelClass,
-      payload
-    );
+    return super.normalizeCreateRecordResponse(store, primaryModelClass, task);
   }
 }
